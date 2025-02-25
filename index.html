@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Isometric Solar System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: radial-gradient(circle at center, #1a1a2e, #000);
+            font-family: 'Arial', sans-serif;
+        }
+        canvas {
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 4px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        .controls {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            pointer-events: none;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+        .title {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+        }
+        .control-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .control-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .speed-control {
+            margin-top: 10px;
+            pointer-events: auto;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            height: 6px;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        Изометрический вид солнечной системы<br>
+        Планеты движутся по наклонным орбитам<br>
+        <span style="color: #FFE87C">⭐ Солнце</span> и 
+        <span style="color: #6495ED">🌍 Планеты</span> в объемном представлении<br><br>
+        <button id="pauseButton" class="control-button">
+            Пауза ⏸️
+        </button><br><br>
+        <div class="speed-control">
+            Скорость симуляции: <span id="speedValue">1x</span><br>
+            <input type="range" id="speedSlider" min="0.1" max="5" step="0.1" value="1">
+        </div>
+    </div>
+    <div class="title">
+        Solar System
+    </div>
+    <canvas id="solarSystem" width="800" height="600"></canvas>
+    <script src="main.dart.js"></script>
+</body>
+</html>
