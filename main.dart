@@ -158,7 +158,6 @@ class CelestialBody {
             ctx.font = '12px Arial';
             ctx.fillText(name, screenX - 15, screenY - radius - 5);
         }
-
         // Добавляем подсветку при наведении
         if (isHovered) {
             ctx.beginPath();
